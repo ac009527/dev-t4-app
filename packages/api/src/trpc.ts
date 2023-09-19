@@ -4,7 +4,8 @@ import superJson from 'superjson'
 
 const t = initTRPC.context<Context>().create({
   transformer: superJson,
-  errorFormatter({ shape }) {
+  errorFormatter({ shape }) { // 修改成国际化的错误信息
+    // shape.message = i18n.t(`errors.${shape.code}`)
     return shape
   },
 })
